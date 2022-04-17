@@ -1,6 +1,6 @@
 import { Button, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { back } from '../constants/icons'
+import { back } from '../constants'
 import { COLORS, FONTS, SIZES } from '../constants/theme'
 import CustomTextInput from '../components/formInputs/CustomTextInput'
 import {useForm} from 'react-hook-form'

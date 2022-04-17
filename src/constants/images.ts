@@ -1,5 +1,5 @@
 import Gallery from '../assets/images/Gallery.png'
 
-export  {
+export default  {
     Gallery
 }

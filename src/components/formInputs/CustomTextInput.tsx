@@ -51,7 +51,7 @@ const CustomInput = (props:Props) => {
 
 const styles =   (props:Props, focused:boolean, error:any) => StyleSheet.create({
   container: {
-    backgroundColor: props.backgroundColor ? props.backgroundColor : COLORS.white,
+    backgroundColor: props.backgroundColor ? props.backgroundColor : focused?COLORS.btnBack:COLORS.white,
     width: props.width ? props.width : '100%',
     borderColor: error?'red':focused?COLORS.primary:COLORS.frenchGray,
     borderWidth: 1,

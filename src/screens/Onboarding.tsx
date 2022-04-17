@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, FONTS, SIZES } from '../constants/theme'
 import NormalBtn from '../components/buttons/NormalBtn'
 import GradientBtn from '../components/buttons/GradientBtn'
-import {Gallery} from '../constants/images'
+import {Gallery} from '../constants'
 import LinearGradient from 'react-native-linear-gradient'
 import {useNavigation} from '@react-navigation/native'
 
