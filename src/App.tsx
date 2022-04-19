@@ -1,14 +1,11 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import RootNavigator from './navigations/RootNavigator'
-
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import RootNavigator from './navigations/RootNavigator';
 
 const App = () => {
-  return (
-        <RootNavigator />
-  )
-}
+  return <RootNavigator />;
+};
 
-export default App
+export default App;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

@@ -1,15 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
-const BlankSpacer = (props:{height:number | string}) => {
+const BlankSpacer = (props: {height: number | string}) => {
   return (
-    <View style={{
-        height:props.height
-    }}  />
-      
-  )
-}
+    <View
+      style={{
+        height: props.height,
+      }}
+    />
+  );
+};
 
-export default BlankSpacer
+export default BlankSpacer;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

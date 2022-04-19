@@ -4,8 +4,7 @@ const {height, width} = Dimensions.get('window');
 
 
 export const COLORS = {
-    primary: "#684DEC",  
-    btnBack:"#F1F1FE",
+    primary: "#684DEC",    
     secondary: "#FFBF75",   
     lightMaroon: "#bd1087",   
     darkMaroon: "#84298e",   
@@ -13,10 +12,10 @@ export const COLORS = {
     black: "#000000",
     green: "#37E39F",
     red: "#F9A8BA",
-    darkgray:"#393E48",
+    darkgray:"#222831",
     gray: "#6A6A6A",
     frenchGray:"#C3C3C4",
-    lightGray: "#E3E3E7",
+    lightGray: "#dbdbdb",
     lightGray1: "#f5f6fa",
     transparent:'transparent',
     background:'#f3f2f7',
@@ -65,5 +64,5 @@ export const FONTS = {
     body3: {  fontSize: SIZES.body3, lineHeight: 22 },
     body4: {  fontSize: SIZES.body4, lineHeight: 22 },
     body5: {  fontSize: SIZES.body5, lineHeight: 22 },
-    body6: {  fontSize: SIZES.body6, lineHeight: 18 },
+    body6: { fontFamily: "Roboto-Regular", fontSize: SIZES.body6, lineHeight: 18 },
 };

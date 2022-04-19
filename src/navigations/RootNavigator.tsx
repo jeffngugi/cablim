@@ -1,34 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import HomeScreen from '../screens/HomeScreen'
-import Login from '../screens/Login'
-import SignedInStack from './SignedInStack'
-import SignedOutStack from './SignedOutStack'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HomeScreen from '../screens/HomeScreen';
+import Login from '../screens/Login';
+import SignedInStack from './SignedInStack';
+import SignedOutStack from './SignedOutStack';
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
-const isLoggedIn = true
-
+const isLoggedIn = true;
 
 const RootNavigator = () => {
   return (
     <NavigationContainer>
-      {
-          isLoggedIn ?
-          <>
+      {isLoggedIn ? (
+        <>
           <SignedOutStack />
-          </>
-            :
-           <>
-            <SignedOutStack />
-           </>
-      }
+        </>
+      ) : (
+        <>
+          <SignedOutStack />
+        </>
+      )}
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default RootNavigator
+export default RootNavigator;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

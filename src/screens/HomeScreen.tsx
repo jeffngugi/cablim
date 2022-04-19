@@ -1,93 +1,85 @@
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
-import { COLORS, FONTS, SIZES, icons } from '../constants'
-import GradientBtn from '../components/buttons/GradientBtn'
-import LinkBtn from '../components/buttons/LinkBtn'
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import React, {useState} from 'react';
+import {COLORS, FONTS, SIZES, icons} from '../constants';
+import GradientBtn from '../components/buttons/GradientBtn';
+import LinkBtn from '../components/buttons/LinkBtn';
+import HomeCard from '../components/HomeCard/HomeCard';
 
+const HomeScreen = ({navigation}: any) => {
+  const [forRent, setForRent] = useState<boolean>(true);
 
-const HomeScreen = () => {
+  const handleTouchLocations = () => {
+    console.log('Location actions here');
+  };
 
-  const [forRent, setForRent] = useState<boolean>(true)
+  const navigateToFilter = () => {
+    navigation.navigate('Search');
+  };
 
-  const handleTouchLocations = ()=>{
-    console.log('Search locations')
-  }
-
-
+  const navigateToSearch = () => {
+    console.log('This navigates to search, autofocas the search');
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerLabel}>Find your place in</Text>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.headerLocations}
-          onPress={()=>handleTouchLocations()}
-        >
+          onPress={() => handleTouchLocations()}>
           <View style={styles.headerPin}>
-            <Image
-              source={icons.location}
-              style={styles.headerPin}
-            />
+            <Image source={icons.location} style={styles.headerPin} />
           </View>
           <Text style={styles.locationText}>Nairobi, Kenya</Text>
           <View style={styles.headerDownArrow}>
-            <Image 
-              source={icons.down}
-              style={styles.headerDownArrow}
-            />
+            <Image source={icons.down} style={styles.headerDownArrow} />
           </View>
         </TouchableOpacity>
       </View>
-      <View
+      <TouchableOpacity
         style={styles.searchContainer}
-      >
+        onPress={() => {
+          navigateToSearch();
+        }}>
         <View>
-          <Image 
-            source={icons.search}
-            style={styles.searchIcon}
-          />
+          <Image source={icons.search} style={styles.searchIcon} />
         </View>
         <Text style={styles.searchPlaceholder}>
           Search address, city, location
         </Text>
-        <View>
-          <Image 
-            source={icons.filter}
-            style={styles.filterIcon}
-          />
-        </View>
-      </View>
+        <TouchableOpacity onPress={() => navigateToFilter()}>
+          <Image source={icons.filter} style={styles.filterIcon} />
+        </TouchableOpacity>
+      </TouchableOpacity>
       <Text style={styles.mainLabel}>What you need ?</Text>
       <View style={styles.searchForContainer}>
-        {
-          forRent ?
-          <GradientBtn 
-          title='I need to rent'
-          width='48%'
-
-        />
-          :
+        {forRent ? (
+          <GradientBtn title="I need to rent" width="48%" />
+        ) : (
           <LinkBtn
-            title='I need to rent'
-            onPress={()=>setForRent(true)}
-            ContainerOverride={{paddingLeft:SIZES.width/9}}
+            title="I need to rent"
+            onPress={() => setForRent(true)}
+            ContainerOverride={{paddingLeft: SIZES.width / 9}}
             textColor={COLORS.darkgray}
           />
-      }
-       {
-          !forRent ?
-          <GradientBtn 
-          title='I need to buy'
-          width='48%'
-        />
-          :
+        )}
+        {!forRent ? (
+          <GradientBtn title="I need to buy" width="48%" />
+        ) : (
           <LinkBtn
-            title='I need to buy'
-            ContainerOverride={{paddingRight:SIZES.width/9}}
+            title="I need to buy"
+            ContainerOverride={{paddingRight: SIZES.width / 9}}
             textColor={COLORS.darkgray}
-            onPress={()=>setForRent(false)}
+            onPress={() => setForRent(false)}
           />
-      }
+        )}
       </View>
       <View style={styles.nearContainer}>
         <Text style={styles.nearHead}>New your location</Text>
@@ -95,107 +87,131 @@ const HomeScreen = () => {
           <Text style={styles.nearCount}>243 properties in Nairobi</Text>
           <Text style={styles.nearSee}>See all</Text>
         </TouchableOpacity>
-        
+        <HomeCard
+          title="Jeff ngugi trial houses"
+          location="Thogoto, kikuyu"
+          baths={2}
+          beds={2}
+        />
       </View>
 
-
-
+      <View style={styles.nearContainer}>
+        <TouchableOpacity style={styles.seeNearBtn}>
+          <Text style={styles.topRated}>Top rated in Nairobi</Text>
+          <Text style={styles.seeTop}>See all</Text>
+        </TouchableOpacity>
+        <HomeCard
+          title="Jeff ngugi trial houses"
+          location="Gitaru, kikuyu"
+          baths={2}
+          beds={2}
+        />
+      </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;
 
 const styles = StyleSheet.create({
-  container:{
-    backgroundColor:COLORS.background, 
-    flex:1,
-    marginLeft:SIZES.base,
-    marginRight:SIZES.base
+  container: {
+    backgroundColor: COLORS.background,
+    flex: 1,
+    marginLeft: SIZES.base,
+    marginRight: SIZES.base,
   },
-  header:{
-    width:'60%',
+  header: {
+    width: '60%',
   },
-  headerLabel:{
-    ...FONTS.h4, 
-    color:COLORS.gray,
-    marginVertical:SIZES.base/4,
-    marginHorizontal:2
+  headerLabel: {
+    ...FONTS.h4,
+    color: COLORS.gray,
+    marginVertical: SIZES.base / 4,
+    marginHorizontal: 2,
   },
-  headerLocations:{
-    flexDirection:'row',
-    marginVertical:SIZES.base/4,
-    alignItems:'center',
-    paddingBottom:SIZES.padding/2
+  headerLocations: {
+    flexDirection: 'row',
+    marginVertical: SIZES.base / 4,
+    alignItems: 'center',
+    paddingBottom: SIZES.padding / 2,
   },
-  headerPin:{
-    tintColor:COLORS.primary,
-    width:20,
-    height:20
+  headerPin: {
+    tintColor: COLORS.primary,
+    width: 20,
+    height: 20,
   },
-  locationText:{
+  locationText: {
     ...FONTS.h3,
-    marginHorizontal:5
+    marginHorizontal: 5,
   },
-  headerDownArrow:{
-    tintColor:COLORS.darkgray,
-    width:15,
-    height:15
+  headerDownArrow: {
+    tintColor: COLORS.darkgray,
+    width: 15,
+    height: 15,
   },
-  searchContainer:{
-    backgroundColor:COLORS.lightGray,
-    flexDirection:'row',
-    alignItems:'center',
-    justifyContent:'space-around',
-    paddingHorizontal:SIZES.font,
-    borderRadius:SIZES.padding*4,
-    paddingVertical:SIZES.width/50,
-    marginVertical:SIZES.width/22
+  searchContainer: {
+    backgroundColor: COLORS.lightGray,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingHorizontal: SIZES.font,
+    borderRadius: SIZES.padding * 4,
+    paddingVertical: SIZES.width / 50,
+    marginVertical: SIZES.width / 22,
   },
-  searchIcon:{
-    width:SIZES.width/16,
-    height:SIZES.width/16
+  searchIcon: {
+    width: SIZES.width / 16,
+    height: SIZES.width / 16,
   },
-  filterIcon:{
-    width:SIZES.width/16,
-    height:SIZES.width/16
+  filterIcon: {
+    width: SIZES.width / 16,
+    height: SIZES.width / 16,
   },
-  searchPlaceholder:{
-    color:COLORS.darkgray,
-    marginHorizontal:20,
-    flex:1,
+  searchPlaceholder: {
+    color: COLORS.darkgray,
+    marginHorizontal: 20,
+    flex: 1,
   },
-  mainLabel:{
-    marginVertical:SIZES.width/40,
+  mainLabel: {
+    marginVertical: SIZES.width / 40,
     ...FONTS.h22,
-    color:COLORS.darkgray,
-    marginHorizontal:2
+    color: COLORS.darkgray,
+    marginHorizontal: 2,
   },
-  searchForContainer:{
-    borderRadius:SIZES.padding*4,
-    padding:SIZES.width/56,
-    flexDirection:'row',
-    backgroundColor:COLORS.lightGray,
-    justifyContent:'space-between'
+  searchForContainer: {
+    borderRadius: SIZES.padding * 4,
+    padding: SIZES.width / 60,
+    flexDirection: 'row',
+    backgroundColor: COLORS.lightGray,
+    justifyContent: 'space-between',
   },
-  nearContainer:{
-    marginVertical:SIZES.width/20,
+  nearContainer: {
+    marginVertical: SIZES.width / 50,
   },
-  nearHead:{
+  nearHead: {
     ...FONTS.h22,
-    fontWeight:'bold'
+    fontWeight: 'bold',
   },
-  seeNearBtn:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    paddingVertical:SIZES.width/45,
+  seeNearBtn: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: SIZES.width / 45,
   },
-  nearCount:{
+  nearCount: {
     ...FONTS.h4,
-    color:COLORS.gray
+    color: COLORS.gray,
   },
-  nearSee:{
+  nearSee: {
     ...FONTS.h4,
-    color:COLORS.primary
-  }
-})
+    color: COLORS.primary,
+  },
+  topRated: {
+    ...FONTS.h3,
+    color: COLORS.gray,
+    fontWeight: 'bold',
+  },
+  seeTop: {
+    ...FONTS.h3,
+    color: COLORS.primary,
+  },
+});

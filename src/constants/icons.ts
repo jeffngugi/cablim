@@ -11,9 +11,12 @@ import down from '../assets/icons/down.png'
 import location from '../assets/icons/location.png'
 import filter from '../assets/icons/setting.png'
 import search from '../assets/icons/search.png'
+import star from '../assets/icons/start.png'
+import bath from '../assets/icons/bath.png'
+import bed from '../assets/icons/bed.png'
 
 
 
 export default {
-    back, home1, home2, heart1, heart2, user1, user2, signpost1, signpost2, down, location, search, filter
+    back, home1, home2, heart1, heart2, user1, user2, signpost1, signpost2, down, location, search, filter, star, bed, bath
 }
