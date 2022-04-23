@@ -9,13 +9,13 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {back} from '../constants';
+import {icons} from '../constants';
 import {COLORS, FONTS, SIZES} from '../constants/theme';
 import CustomTextInput from '../components/formInputs/CustomTextInput';
 import {useForm} from 'react-hook-form';
 import GradientBtn from '../components/buttons/GradientBtn';
 import NormalBtn from '../components/buttons/NormalBtn';
-import BlankSpacer from '../components/BlankSpacer';
+import BlankSpacer from '../components/UIs/BlankSpacer';
 import LinkBtn from '../components/buttons/LinkBtn';
 
 const Login = ({navigation}: any) => {
@@ -42,7 +42,7 @@ const Login = ({navigation}: any) => {
           onPress={() => {
             handleBack();
           }}>
-          <Image source={back} style={styles.backImg} />
+          <Image source={icons.back} style={styles.backImg} />
         </TouchableOpacity>
       </View>
       <View style={styles.topTxtContainer}>

@@ -19,6 +19,7 @@ export const COLORS = {
     lightGray1: "#f5f6fa",
     transparent:'transparent',
     background:'#f3f2f7',
+    inputBackground:'#F1F1FE',
     whitish:'#EEEEEE',
     opaq:'#00000030'
 }

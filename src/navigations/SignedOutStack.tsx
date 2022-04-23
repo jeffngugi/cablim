@@ -3,7 +3,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import RegistrationStack from './RegistrationStack';
 import HomeTabs from './HomeTabs';
-import SearchScreen from '../screens/SearchScreen';
+import SearchScreen from '../screens/SearchFilter/SearchScreen';
 import PropertyDetail from '../screens/PropertyDetail';
 
 const Stack = createNativeStackNavigator();

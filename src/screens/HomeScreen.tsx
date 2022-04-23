@@ -19,12 +19,8 @@ const HomeScreen = ({navigation}: any) => {
     console.log('Location actions here');
   };
 
-  const navigateToFilter = () => {
-    navigation.navigate('Search');
-  };
-
-  const navigateToSearch = () => {
-    console.log('This navigates to search, autofocas the search');
+  const navigateToSearchFilter = (searchtype:boolean) => {
+    navigation.navigate('Search', {filter:searchtype});
   };
 
   return (
@@ -46,7 +42,7 @@ const HomeScreen = ({navigation}: any) => {
       <TouchableOpacity
         style={styles.searchContainer}
         onPress={() => {
-          navigateToSearch();
+          navigateToSearchFilter(false);
         }}>
         <View>
           <Image source={icons.search} style={styles.searchIcon} />
@@ -54,7 +50,7 @@ const HomeScreen = ({navigation}: any) => {
         <Text style={styles.searchPlaceholder}>
           Search address, city, location
         </Text>
-        <TouchableOpacity onPress={() => navigateToFilter()}>
+        <TouchableOpacity onPress={() => navigateToSearchFilter(true)}>
           <Image source={icons.filter} style={styles.filterIcon} />
         </TouchableOpacity>
       </TouchableOpacity>
