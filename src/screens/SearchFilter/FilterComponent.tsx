@@ -1,10 +1,29 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import AppSegementCotrol from '../../components/SegmentControl/AppSegementCotrol';
 
 const FilterComponent = () => {
+const [selectedIndex, setSelectedIndex] = useState(0)
+
+const handleTabPress = (index:number)=>{
+    setSelectedIndex(index)
+}
   return (
-    <View>
-      <Text>FilterComponent</Text>
+    <View style={styles.container}>
+        <View>
+        <AppSegementCotrol
+          values={['I want to rent', 'I want to buy',]}
+          selectedIndex={selectedIndex}
+          handleTabPress={handleTabPress}
+        />
+        </View>
+        <View>
+            <Text>Price range</Text>
+            
+        </View>
+        <View>
+            <Text>How Long do you want to stay</Text>
+        </View>
     </View>
   )
 }
@@ -13,4 +32,8 @@ const FilterComponent = () => {
 
 export default FilterComponent
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+
+    }
+})

@@ -54,7 +54,7 @@ const HomeScreen = ({navigation}: any) => {
           <Image source={icons.filter} style={styles.filterIcon} />
         </TouchableOpacity>
       </TouchableOpacity>
-      <Text style={styles.mainLabel}>What you need ?</Text>
+      <Text style={styles.mainLabel}>What do you need ?</Text>
       <View style={styles.searchForContainer}>
         {forRent ? (
           <GradientBtn title="I need to rent" width="48%" />
