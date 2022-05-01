@@ -12,7 +12,7 @@ interface Props{
 const SearchScreen = (props:Props) => {
   const {navigation, route} = props
   
-  const [filtering, setFilterng] = useState<boolean>(route.params.filter)
+  const [filtering, setFiltering] = useState<boolean>(route.params.filter)
 
   const goBack = ()=>{
     navigation.goBack()
@@ -32,11 +32,12 @@ const SearchScreen = (props:Props) => {
         </TouchableOpacity>
         <TextInput 
           style={styles.searchInput}
-
+          onFocus={()=>setFiltering(false)}
+          autoFocus={!filtering}
         />
         <TouchableOpacity
           style={styles.filterBtn}
-          onPress={()=>setFilterng(!filtering)}
+          onPress={()=>setFiltering(!filtering)}
         >
           <Image
               source={icons.setting}

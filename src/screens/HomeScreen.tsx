@@ -8,12 +8,17 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {COLORS, FONTS, SIZES, icons} from '../constants';
-import GradientBtn from '../components/buttons/GradientBtn';
-import LinkBtn from '../components/buttons/LinkBtn';
 import HomeCard from '../components/HomeCard/HomeCard';
+import AppSegementCotrol from '../components/SegmentControl/AppSegementCotrol';
 
 const HomeScreen = ({navigation}: any) => {
-  const [forRent, setForRent] = useState<boolean>(true);
+
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
+
+  const handleTabPress = (index:number)=>{
+    setSelectedIndex(index)
+    }
 
   const handleTouchLocations = () => {
     console.log('Location actions here');
@@ -55,28 +60,11 @@ const HomeScreen = ({navigation}: any) => {
         </TouchableOpacity>
       </TouchableOpacity>
       <Text style={styles.mainLabel}>What do you need ?</Text>
-      <View style={styles.searchForContainer}>
-        {forRent ? (
-          <GradientBtn title="I need to rent" width="48%" />
-        ) : (
-          <LinkBtn
-            title="I need to rent"
-            onPress={() => setForRent(true)}
-            ContainerOverride={{paddingLeft: SIZES.width / 9}}
-            textColor={COLORS.darkgray}
-          />
-        )}
-        {!forRent ? (
-          <GradientBtn title="I need to buy" width="48%" />
-        ) : (
-          <LinkBtn
-            title="I need to buy"
-            ContainerOverride={{paddingRight: SIZES.width / 9}}
-            textColor={COLORS.darkgray}
-            onPress={() => setForRent(false)}
-          />
-        )}
-      </View>
+      <AppSegementCotrol
+          values={['I want to rent', 'I want to buy',]}
+          selectedIndex={selectedIndex}
+          handleTabPress={handleTabPress}
+        />
       <View style={styles.nearContainer}>
         <Text style={styles.nearHead}>New your location</Text>
         <TouchableOpacity style={styles.seeNearBtn}>
