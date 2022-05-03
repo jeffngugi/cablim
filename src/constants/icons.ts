@@ -15,9 +15,10 @@ import star from '../assets/icons/start.png'
 import bath from '../assets/icons/bath.png'
 import bed from '../assets/icons/bed.png'
 import setting from '../assets/icons/setting.png'
+import reset from '../assets/icons/reset.png'
 
 
 
 export default {
-    back, home1, home2, heart1, heart2, user1, user2, signpost1, signpost2, down, location, search, filter, star, bed, bath, setting
+    back, home1, home2, heart1, heart2, user1, user2, signpost1, signpost2, down, location, search, filter, star, bed, bath, setting, reset
 }

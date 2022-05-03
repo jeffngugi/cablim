@@ -11,6 +11,7 @@ interface Props{
 
 const SearchScreen = (props:Props) => {
   const {navigation, route} = props
+  const [results, setResults] = useState(false)
   
   const [filtering, setFiltering] = useState<boolean>(route.params.filter)
 
@@ -47,10 +48,14 @@ const SearchScreen = (props:Props) => {
       </View>
       <View style={styles.bodyContainer}>
         {
+          results ? <Text>Results available</Text> :
+        
+        
           filtering ?
             <FilterComponent />
           : <SearchComponent />
-        }
+        
+      }
       </View>
     </SafeAreaView>
   );
