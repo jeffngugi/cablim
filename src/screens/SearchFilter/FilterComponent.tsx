@@ -23,6 +23,14 @@ const handleShowResults = ()=>{
   console.log('Show results')
 }
 
+const Incrementor = (props:{label:string, })=>{
+
+  return(
+    <View>
+      <Text></Text>
+    </View>
+  )
+}
 
   return (
     <View style={styles.container}>
@@ -41,7 +49,8 @@ const handleShowResults = ()=>{
           label='Price range'
         />
         <View>
-            <Text>How Long do you want to stay</Text>
+            <Text>Rooms and bed</Text>
+            
         </View>
         <View>
           <Text>Amenities</Text>
